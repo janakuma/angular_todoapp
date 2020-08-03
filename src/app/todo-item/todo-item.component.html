@@ -1,0 +1,46 @@
+  <li         
+    @fade
+    [class.completed]="todo.completed"
+    *ngIf="!todo.del"
+  >           
+
+    <input 
+      type="checkbox" 
+      class="chk"
+      *ngIf="!todo.completed"
+      [(ngModel)]="todo.checked"
+    >   
+
+    <div class="desc">      
+      <p 
+        (dblclick)="editTodo(todo)"
+        *ngIf="!todo.editing; else editingTodo"
+      >
+        {{todo.id}}{{ todo.title }}
+      </p>          
+
+      <ng-template #editingTodo>          
+
+        <div class="editingTodo">
+          <input 
+            type="text" 
+            class="input-edit" 
+            *ngIf="todo.editing;"                          
+            (keyup.enter)="doneEdit(todo)"            
+            (keyup.esc)="cancelEdit(todo)"            
+            [(ngModel)]="todo.title"
+          >
+          <button (click)="doneEdit(todo)">edit</button>
+        </div>
+        
+      </ng-template>
+    </div >
+    <span class="label">{{ todo.label }}</span>        
+    <!-- <i class="time">{{ getFormattedTime(todo.time) }}</i> -->
+    <button 
+      class="btn {{ todo.completed ? '' : 'disabled' }}"          
+      (click)="completedTodo(todo);"
+    ></button>
+
+    <button class="delTodo" (click)="delTodo(todo);">delTodo</button>    
+  </li>

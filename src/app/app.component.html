@@ -1,0 +1,43 @@
+<section>  
+  <todo-header    
+    [inputValue]="inputValue"
+    (clickAddTodo)="handleAddTodo($event)"
+  >
+  </todo-header>
+
+  <main>
+    <div class="header-date">      
+      <strong class="todo-date">List</strong>
+    </div>
+
+    <ul>
+      <todo-item         
+        *ngFor="let todo of todos"
+        [todo]="todo"        
+        
+        (doneItem) = doneEdit($event);
+        (editItem) = editTodo($event); 
+        (cancelItem) = cancelEdit($event);         
+        (completeItem) = completedTodo($event); 
+        (delItem) = delTodo($event);         
+      >      
+      </todo-item>
+    </ul>    
+  </main>
+
+  <div class="status-info">
+    <span>
+      <input 
+        type="checkbox" 
+        [(ngModel)]="allcheck"
+        (change)="allCheck(todos)"
+      >
+      Check all
+      <button (click)="selectDelTodo(todos)">delete All</button>
+    </span>
+    
+    <span class="remain-count">
+      remain: <i>{{getCompleteLength(todos)}}</i> / <strong>{{ todos.length }}</strong>
+    </span>      
+  </div>
+</section>

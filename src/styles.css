@@ -1,0 +1,30 @@
+/* Add application styles & imports to this file! */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+* { 
+  margin: 0; padding: 0; 
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.4;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: #494a68;
+}
+
+input[type="text"] {
+  border: none;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+button {
+  border: none;
+}
+
+i {
+  font-style: normal;
+}
+
+li { list-style: none; }

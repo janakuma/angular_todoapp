@@ -1,0 +1,10 @@
+<header id="header">
+  <h1>{{title}}</h1>        
+  <div class="input-block">
+    <input 
+      type="text"        
+      [(ngModel)]="inputValue"
+    >
+    <button (click)="handleAddTodo(inputValue)">Add</button>
+  </div>  
+</header>  

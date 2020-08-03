@@ -1,0 +1,210 @@
+button {
+  border: none;
+}
+
+.abled {
+  color: #e5e8ec;
+  background: #73b1f4;
+}
+
+.disabled {
+  color: #333;
+  background: #cbd0d8;
+}
+
+#header {
+  padding: 15px 15px;
+
+  h1 {
+    padding: 0 0 10px 0;
+    text-align: center;
+  }
+
+  .input-block {
+    display:flex;
+    position: relative;
+    input[type="text"] {
+      flex: 1;
+      height: 40px;
+      padding: 0 60px 0 20px;
+      border-radius: 20px;
+      border: none;
+      font-size: 20px;
+      color: #fff;
+      background: #282851;
+    }
+
+    button {
+      overflow: hidden;
+      position: absolute;
+      top: 50%; 
+      right: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;      
+      font-size: 0;
+      text-transform: uppercase;
+      transform: translate(0,-50%);
+      background-color: #4288fd;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 14px;
+        height: 3px;
+        background: #fff;
+      }
+
+      &::before {        
+        transform: translate(-50%,-50%);
+      }
+
+      &::after {        
+        transform: translate(-50%,-50%) rotate(90deg);
+      }
+    }
+  }
+}
+
+main {
+  padding: 0 15px 15px;
+  background-color: #181937;
+
+  .header-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 46px;
+    padding: 20px 0 0 0;
+    line-height: 1;
+
+    .todo-date {
+      font-size: 24px;      
+      color: #77db55;            
+    }        
+  }
+
+  ul {
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      height: 70px;
+      margin-top: 5px;
+      border-radius: 5px;
+      padding: 0 20px 0 40px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background-color: #494a68;
+
+      &.completed {
+        opacity: 0.4;
+        .desc p {
+          text-decoration-line: line-through;      
+        }
+      }
+
+      .chk {
+        position: absolute;
+        top: 18px;
+        left: 10px;
+        width: 16px;
+        height: 16px;        
+      }
+
+      .editingTodo {
+        $radius: 12px;
+
+        display: flex;
+        width: 50%;
+
+        .input-edit {
+          flex: 1;
+          height: $radius*2;
+          line-height: $radius*2;
+          margin-left: -12px;
+          padding: 0 0 0 11px;
+          border-top-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+          font-size: 14px;
+          background: rgba(255,255,255,0.8);
+        }
+
+        button {
+          width: 60px;          
+          font-size: 14px;
+          border-top-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+          color: #eee;
+          background: #666;
+        }
+      }
+
+      
+       
+      .label {
+        color: rgba(255,255,255,0.4);
+        font-size: 14px;
+      }
+
+      .time {        
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        right:80px; 
+        height: 20px;
+        line-height: 20px;
+        padding: 0 6px 0;
+        border-radius: 10px;
+        font-size: 9px;
+        background-color: #e1a022;
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        width: 60px;
+        height: 70px;
+        background: #424361;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 25px;
+          height: 12px;
+          margin-top: -10px;
+          border: solid rgba(255,255,255,0.7);
+          border-width: 0 0 5px 5px;
+          transform: rotate(-45deg);          
+        }
+
+        &.disabled {
+          color: #333;          
+          background: #4288fd;
+        }
+      }
+    }
+  }
+}
+
+.status-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 0;
+  .remain-count {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+
+    i {
+      color: #ffcc00;
+    }
+  }
+}
